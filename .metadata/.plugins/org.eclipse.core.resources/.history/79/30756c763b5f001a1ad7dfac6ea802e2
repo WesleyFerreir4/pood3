@@ -1,0 +1,15 @@
+package pac_investimento;
+
+public class Investimento {
+	public float vp, taxa;
+	public int prazo; 
+	public double vf;
+	public String tipo;
+	
+	public double calcvf() {
+		vf = vp * mathpow(1+taxa, prazo);
+		return vf;
+	}
+	
+	public tring
+}

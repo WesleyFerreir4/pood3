@@ -1,0 +1,15 @@
+package pac_imc;
+
+public class Imc {
+	public float peso;
+	public float altura;
+	public double imc;
+	public String classific;
+	
+	public double CalcImc(){
+		imc = peso/Math.pow(altura, 2);
+		return imc;
+	}
+	
+	
+}

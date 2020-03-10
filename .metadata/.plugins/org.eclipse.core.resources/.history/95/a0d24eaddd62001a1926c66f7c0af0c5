@@ -1,0 +1,142 @@
+package pac_investimento;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.Font;
+import java.awt.SystemColor;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.text.DecimalFormat;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class AW_Investimento {
+
+	private JFrame frame;
+	private JTextField txtvp;
+	private JTextField txtaxa;
+	private JTextField txtprazo;
+	private JTextField txtvf;
+	private JTextField txtipo;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AW_Investimento window = new AW_Investimento();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AW_Investimento() {
+		initialize();	
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 403, 441);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JTextArea txtrInvestimento = new JTextArea();
+		txtrInvestimento.setBackground(SystemColor.control);
+		txtrInvestimento.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtrInvestimento.setText("Investimento");
+		txtrInvestimento.setBounds(119, 11, 151, 29);
+		frame.getContentPane().add(txtrInvestimento);
+		
+		JTextArea txtrValorPresente = new JTextArea();
+		txtrValorPresente.setBackground(SystemColor.control);
+		txtrValorPresente.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtrValorPresente.setText("Valor Presente");
+		txtrValorPresente.setBounds(10, 78, 134, 29);
+		frame.getContentPane().add(txtrValorPresente);
+		
+		JTextArea txtrTaxa = new JTextArea();
+		txtrTaxa.setText("Taxa");
+		txtrTaxa.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtrTaxa.setBackground(SystemColor.menu);
+		txtrTaxa.setBounds(10, 127, 134, 29);
+		frame.getContentPane().add(txtrTaxa);
+		
+		JTextArea txtrPrazo = new JTextArea();
+		txtrPrazo.setText("Prazo");
+		txtrPrazo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtrPrazo.setBackground(SystemColor.menu);
+		txtrPrazo.setBounds(10, 176, 134, 29);
+		frame.getContentPane().add(txtrPrazo);
+		
+		JTextArea txtrValorFuturo = new JTextArea();
+		txtrValorFuturo.setText("Valor Futuro");
+		txtrValorFuturo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtrValorFuturo.setBackground(SystemColor.menu);
+		txtrValorFuturo.setBounds(10, 229, 134, 29);
+		frame.getContentPane().add(txtrValorFuturo);
+		
+		JTextArea txtrTipoInvestimento = new JTextArea();
+		txtrTipoInvestimento.setText("Tipo Investimento");
+		txtrTipoInvestimento.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtrTipoInvestimento.setBackground(SystemColor.menu);
+		txtrTipoInvestimento.setBounds(10, 279, 151, 29);
+		frame.getContentPane().add(txtrTipoInvestimento);
+		
+		JButton btncalc = new JButton("Calcular");
+		btncalc.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Investimento inv = new Investimento();
+				inv.vp = Float.parseFloat(txtvp.getText());
+				inv.taxa = Float.parseFloat(txtaxa.getText());
+				inv.prazo = Integer.parseInt(txtprazo.getText());
+				inv.calcvf();
+				txtvf.setText(String.valueOf(inv.vf));
+				inv.mostrartipo();
+				txtipo.setText(String.valueOf(inv.tipo));
+			}
+		});
+		btncalc.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btncalc.setBounds(143, 362, 103, 29);
+		frame.getContentPane().add(btncalc);
+		
+		txtvp = new JTextField();
+		txtvp.setBounds(241, 84, 134, 20);
+		frame.getContentPane().add(txtvp);
+		txtvp.setColumns(10);
+		
+		txtaxa = new JTextField();
+		txtaxa.setBounds(312, 133, 63, 20);
+		frame.getContentPane().add(txtaxa);
+		txtaxa.setColumns(10);
+		
+		txtprazo = new JTextField();
+		txtprazo.setColumns(10);
+		txtprazo.setBounds(312, 182, 63, 20);
+		frame.getContentPane().add(txtprazo);
+		
+		txtvf = new JTextField();
+		txtvf.setEditable(false);
+		txtvf.setColumns(10);
+		txtvf.setBounds(241, 235, 134, 20);
+		frame.getContentPane().add(txtvf);
+		
+		txtipo = new JTextField();
+		txtipo.setEditable(false);
+		txtipo.setColumns(10);
+		txtipo.setBounds(203, 285, 172, 20);
+		frame.getContentPane().add(txtipo);
+	}
+}

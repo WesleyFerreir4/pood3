@@ -1,0 +1,13 @@
+package pac_fatorial;
+
+public class Fatorial {
+	public int num, i;
+	public long fat;
+	
+	public long calcfat() {
+		for(i=num; i>0; i--) {
+			fat = fat*i;
+		}
+		return fat;
+	}
+}

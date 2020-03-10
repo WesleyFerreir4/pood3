@@ -1,0 +1,88 @@
+package pac_fatorial;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import java.awt.Font;
+import java.awt.SystemColor;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+public class AW_fatorial {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AW_fatorial window = new AW_fatorial();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public AW_fatorial() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 303, 286);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JTextArea txtrFatorial = new JTextArea();
+		txtrFatorial.setBackground(SystemColor.control);
+		txtrFatorial.setFont(new Font("Tahoma", Font.BOLD, 20));
+		txtrFatorial.setText("Fatorial");
+		txtrFatorial.setBounds(95, 11, 86, 29);
+		frame.getContentPane().add(txtrFatorial);
+		
+		JTextArea txtrNmero = new JTextArea();
+		txtrNmero.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txtrNmero.setBackground(SystemColor.control);
+		txtrNmero.setText("N\u00FAmero");
+		txtrNmero.setBounds(23, 81, 79, 29);
+		frame.getContentPane().add(txtrNmero);
+		
+		JTextArea txtrFatorial_1 = new JTextArea();
+		txtrFatorial_1.setText("Fatorial");
+		txtrFatorial_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txtrFatorial_1.setBackground(SystemColor.menu);
+		txtrFatorial_1.setBounds(23, 139, 79, 29);
+		frame.getContentPane().add(txtrFatorial_1);
+		
+		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.setBounds(95, 203, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setBounds(197, 89, 57, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setColumns(10);
+		textField_1.setBounds(168, 147, 86, 20);
+		frame.getContentPane().add(textField_1);
+	}
+
+}
