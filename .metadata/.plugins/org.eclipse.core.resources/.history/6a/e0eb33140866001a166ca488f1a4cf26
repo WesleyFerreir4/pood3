@@ -1,0 +1,13 @@
+package pac_sqroot;
+
+public class sqroot {
+	public int num;
+	public String raizq;
+	public int cc;
+	
+	public String CalcularRQ() {
+		while ()
+		
+		return raizq;
+	}
+}
